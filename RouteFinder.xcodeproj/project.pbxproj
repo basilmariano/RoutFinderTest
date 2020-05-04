@@ -1,0 +1,939 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56EB1139246039560098AB20 /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB1138246039560098AB20 /* GooglePlace.swift */; };
+		56EB113D24603AF00098AB20 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB113C24603AF00098AB20 /* Geometry.swift */; };
+		56EB113F24603B060098AB20 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB113E24603B060098AB20 /* Location.swift */; };
+		56EB114124603B460098AB20 /* GooglePlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB114024603B460098AB20 /* GooglePlaceResponse.swift */; };
+		56EB114324603CC60098AB20 /* RestaurantMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB114224603CC60098AB20 /* RestaurantMarker.swift */; };
+		56EB1145246042C80098AB20 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB1144246042C80098AB20 /* Step.swift */; };
+		56EB1147246047F80098AB20 /* StartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB1146246047F80098AB20 /* StartMarker.swift */; };
+		56EB1149246048030098AB20 /* FinishMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB1148246048030098AB20 /* FinishMarker.swift */; };
+		56EB114C2460484A0098AB20 /* MarkerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB114B2460484A0098AB20 /* MarkerBase.swift */; };
+		56FD9DB7245EE07E002FAF45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DB6245EE07E002FAF45 /* AppDelegate.swift */; };
+		56FD9DB9245EE07E002FAF45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DB8245EE07E002FAF45 /* SceneDelegate.swift */; };
+		56FD9DBE245EE07E002FAF45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FD9DBC245EE07E002FAF45 /* Main.storyboard */; };
+		56FD9DC0245EE081002FAF45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FD9DBF245EE081002FAF45 /* Assets.xcassets */; };
+		56FD9DC3245EE081002FAF45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FD9DC1245EE081002FAF45 /* LaunchScreen.storyboard */; };
+		56FD9DCE245EE081002FAF45 /* RouteFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DCD245EE081002FAF45 /* RouteFinderTests.swift */; };
+		56FD9DD9245EE081002FAF45 /* RouteFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DD8245EE081002FAF45 /* RouteFinderUITests.swift */; };
+		56FD9DEC245EE266002FAF45 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DEB245EE266002FAF45 /* Constants.swift */; };
+		56FD9DEE245EE52D002FAF45 /* RouteFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DED245EE52D002FAF45 /* RouteFinderViewController.swift */; };
+		56FD9DF1245EFC5C002FAF45 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DF0245EFC5C002FAF45 /* NetworkClient.swift */; };
+		56FD9DF3245F0CC6002FAF45 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DF2245F0CC6002FAF45 /* Route.swift */; };
+		56FD9DF5245F12F1002FAF45 /* Leg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DF4245F12F1002FAF45 /* Leg.swift */; };
+		56FD9DF7245F130C002FAF45 /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DF6245F130C002FAF45 /* Distance.swift */; };
+		56FD9DF9245F1320002FAF45 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DF8245F1320002FAF45 /* Duration.swift */; };
+		56FD9DFB245F134B002FAF45 /* Polyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DFA245F134B002FAF45 /* Polyline.swift */; };
+		56FD9DFD245F138D002FAF45 /* DirectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DFC245F138D002FAF45 /* DirectionResponse.swift */; };
+		56FD9E00245F185A002FAF45 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD9DFF245F185A002FAF45 /* UIViewController+Extensions.swift */; };
+		809E49DFCC04B6AFA1015198 /* Pods_RouteFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E2CDC27E885107CF5D1051 /* Pods_RouteFinder.framework */; };
+		856C80EF903BE69A91999E3E /* Pods_RouteFinder_RouteFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39CD6F25625D3CFEF73B4C /* Pods_RouteFinder_RouteFinderUITests.framework */; };
+		C0AB56E388A9221A626A8534 /* Pods_RouteFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F76B613C9A565E9A914701 /* Pods_RouteFinderTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56FD9DCA245EE081002FAF45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FD9DAB245EE07E002FAF45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56FD9DB2245EE07E002FAF45;
+			remoteInfo = RouteFinder;
+		};
+		56FD9DD5245EE081002FAF45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56FD9DAB245EE07E002FAF45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56FD9DB2245EE07E002FAF45;
+			remoteInfo = RouteFinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0CAC8C5E48E71D31788070AE /* Pods-RouteFinder-RouteFinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteFinder-RouteFinderUITests.release.xcconfig"; path = "Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		10005FB8946A7ECE7FFDD23F /* Pods-RouteFinder-RouteFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteFinder-RouteFinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C5637329A9BD4114D39349C /* Pods-RouteFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteFinder.debug.xcconfig"; path = "Target Support Files/Pods-RouteFinder/Pods-RouteFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		30F76B613C9A565E9A914701 /* Pods_RouteFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E77E304F7B0DBFF19FE7D78 /* Pods-RouteFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteFinder.release.xcconfig"; path = "Target Support Files/Pods-RouteFinder/Pods-RouteFinder.release.xcconfig"; sourceTree = "<group>"; };
+		56EB1138246039560098AB20 /* GooglePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		56EB113C24603AF00098AB20 /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		56EB113E24603B060098AB20 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		56EB114024603B460098AB20 /* GooglePlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceResponse.swift; sourceTree = "<group>"; };
+		56EB114224603CC60098AB20 /* RestaurantMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMarker.swift; sourceTree = "<group>"; };
+		56EB1144246042C80098AB20 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		56EB1146246047F80098AB20 /* StartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMarker.swift; sourceTree = "<group>"; };
+		56EB1148246048030098AB20 /* FinishMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishMarker.swift; sourceTree = "<group>"; };
+		56EB114B2460484A0098AB20 /* MarkerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerBase.swift; sourceTree = "<group>"; };
+		56FD9DB3245EE07E002FAF45 /* Route Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Route Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FD9DB6245EE07E002FAF45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		56FD9DB8245EE07E002FAF45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		56FD9DBD245EE07E002FAF45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		56FD9DBF245EE081002FAF45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56FD9DC2245EE081002FAF45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		56FD9DC4245EE081002FAF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56FD9DC9245EE081002FAF45 /* RouteFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FD9DCD245EE081002FAF45 /* RouteFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFinderTests.swift; sourceTree = "<group>"; };
+		56FD9DCF245EE081002FAF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56FD9DD4245EE081002FAF45 /* RouteFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouteFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FD9DD8245EE081002FAF45 /* RouteFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFinderUITests.swift; sourceTree = "<group>"; };
+		56FD9DDA245EE081002FAF45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56FD9DEB245EE266002FAF45 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		56FD9DED245EE52D002FAF45 /* RouteFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFinderViewController.swift; sourceTree = "<group>"; };
+		56FD9DF0245EFC5C002FAF45 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		56FD9DF2245F0CC6002FAF45 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		56FD9DF4245F12F1002FAF45 /* Leg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leg.swift; sourceTree = "<group>"; };
+		56FD9DF6245F130C002FAF45 /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
+		56FD9DF8245F1320002FAF45 /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		56FD9DFA245F134B002FAF45 /* Polyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polyline.swift; sourceTree = "<group>"; };
+		56FD9DFC245F138D002FAF45 /* DirectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionResponse.swift; sourceTree = "<group>"; };
+		56FD9DFF245F185A002FAF45 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		5A39CD6F25625D3CFEF73B4C /* Pods_RouteFinder_RouteFinderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteFinder_RouteFinderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7187842CD4D22021DCF4CD27 /* Pods-RouteFinderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteFinderTests.debug.xcconfig"; path = "Target Support Files/Pods-RouteFinderTests/Pods-RouteFinderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F1E2CDC27E885107CF5D1051 /* Pods_RouteFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE992C8DB4839B4C80C1E5E8 /* Pods-RouteFinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteFinderTests.release.xcconfig"; path = "Target Support Files/Pods-RouteFinderTests/Pods-RouteFinderTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56FD9DB0245EE07E002FAF45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				809E49DFCC04B6AFA1015198 /* Pods_RouteFinder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FD9DC6245EE081002FAF45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0AB56E388A9221A626A8534 /* Pods_RouteFinderTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FD9DD1245EE081002FAF45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				856C80EF903BE69A91999E3E /* Pods_RouteFinder_RouteFinderUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		56EB113A24603ABD0098AB20 /* GooglePlace */ = {
+			isa = PBXGroup;
+			children = (
+				56EB114A246048310098AB20 /* Marker */,
+				56EB1138246039560098AB20 /* GooglePlace.swift */,
+				56EB113C24603AF00098AB20 /* Geometry.swift */,
+				56EB113E24603B060098AB20 /* Location.swift */,
+				56EB114024603B460098AB20 /* GooglePlaceResponse.swift */,
+			);
+			path = GooglePlace;
+			sourceTree = "<group>";
+		};
+		56EB113B24603AD80098AB20 /* GoogleDirections */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DF2245F0CC6002FAF45 /* Route.swift */,
+				56FD9DF4245F12F1002FAF45 /* Leg.swift */,
+				56FD9DF6245F130C002FAF45 /* Distance.swift */,
+				56FD9DF8245F1320002FAF45 /* Duration.swift */,
+				56FD9DFA245F134B002FAF45 /* Polyline.swift */,
+				56FD9DFC245F138D002FAF45 /* DirectionResponse.swift */,
+				56EB1144246042C80098AB20 /* Step.swift */,
+			);
+			path = GoogleDirections;
+			sourceTree = "<group>";
+		};
+		56EB114A246048310098AB20 /* Marker */ = {
+			isa = PBXGroup;
+			children = (
+				56EB114224603CC60098AB20 /* RestaurantMarker.swift */,
+				56EB1146246047F80098AB20 /* StartMarker.swift */,
+				56EB1148246048030098AB20 /* FinishMarker.swift */,
+				56EB114B2460484A0098AB20 /* MarkerBase.swift */,
+			);
+			path = Marker;
+			sourceTree = "<group>";
+		};
+		56FD9DAA245EE07E002FAF45 = {
+			isa = PBXGroup;
+			children = (
+				56FD9DB5245EE07E002FAF45 /* RouteFinder */,
+				56FD9DCC245EE081002FAF45 /* RouteFinderTests */,
+				56FD9DD7245EE081002FAF45 /* RouteFinderUITests */,
+				56FD9DB4245EE07E002FAF45 /* Products */,
+				D7C5292C465C41507D982119 /* Pods */,
+				6148888CF7BC6BC1093A57CA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		56FD9DB4245EE07E002FAF45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DB3245EE07E002FAF45 /* Route Finder.app */,
+				56FD9DC9245EE081002FAF45 /* RouteFinderTests.xctest */,
+				56FD9DD4245EE081002FAF45 /* RouteFinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56FD9DB5245EE07E002FAF45 /* RouteFinder */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9E01245F1865002FAF45 /* Extension */,
+				56FD9DEF245EFC24002FAF45 /* NetworkClient */,
+				56FD9DEA245EE246002FAF45 /* Models */,
+				56FD9DE7245EE1FE002FAF45 /* Views */,
+				56FD9DE6245EE1E9002FAF45 /* ViewControllers */,
+				56FD9DE9245EE228002FAF45 /* Utils */,
+				56FD9DE8245EE20A002FAF45 /* Resources */,
+				56FD9DB6245EE07E002FAF45 /* AppDelegate.swift */,
+				56FD9DB8245EE07E002FAF45 /* SceneDelegate.swift */,
+				56FD9DC4245EE081002FAF45 /* Info.plist */,
+			);
+			path = RouteFinder;
+			sourceTree = "<group>";
+		};
+		56FD9DCC245EE081002FAF45 /* RouteFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DCD245EE081002FAF45 /* RouteFinderTests.swift */,
+				56FD9DCF245EE081002FAF45 /* Info.plist */,
+			);
+			path = RouteFinderTests;
+			sourceTree = "<group>";
+		};
+		56FD9DD7245EE081002FAF45 /* RouteFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DD8245EE081002FAF45 /* RouteFinderUITests.swift */,
+				56FD9DDA245EE081002FAF45 /* Info.plist */,
+			);
+			path = RouteFinderUITests;
+			sourceTree = "<group>";
+		};
+		56FD9DE6245EE1E9002FAF45 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DED245EE52D002FAF45 /* RouteFinderViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		56FD9DE7245EE1FE002FAF45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DC1245EE081002FAF45 /* LaunchScreen.storyboard */,
+				56FD9DBC245EE07E002FAF45 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		56FD9DE8245EE20A002FAF45 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DBF245EE081002FAF45 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		56FD9DE9245EE228002FAF45 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DEB245EE266002FAF45 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		56FD9DEA245EE246002FAF45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				56EB113B24603AD80098AB20 /* GoogleDirections */,
+				56EB113A24603ABD0098AB20 /* GooglePlace */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		56FD9DEF245EFC24002FAF45 /* NetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DF0245EFC5C002FAF45 /* NetworkClient.swift */,
+			);
+			path = NetworkClient;
+			sourceTree = "<group>";
+		};
+		56FD9E01245F1865002FAF45 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56FD9DFF245F185A002FAF45 /* UIViewController+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6148888CF7BC6BC1093A57CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1E2CDC27E885107CF5D1051 /* Pods_RouteFinder.framework */,
+				5A39CD6F25625D3CFEF73B4C /* Pods_RouteFinder_RouteFinderUITests.framework */,
+				30F76B613C9A565E9A914701 /* Pods_RouteFinderTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7C5292C465C41507D982119 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C5637329A9BD4114D39349C /* Pods-RouteFinder.debug.xcconfig */,
+				3E77E304F7B0DBFF19FE7D78 /* Pods-RouteFinder.release.xcconfig */,
+				10005FB8946A7ECE7FFDD23F /* Pods-RouteFinder-RouteFinderUITests.debug.xcconfig */,
+				0CAC8C5E48E71D31788070AE /* Pods-RouteFinder-RouteFinderUITests.release.xcconfig */,
+				7187842CD4D22021DCF4CD27 /* Pods-RouteFinderTests.debug.xcconfig */,
+				FE992C8DB4839B4C80C1E5E8 /* Pods-RouteFinderTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		56FD9DB2245EE07E002FAF45 /* RouteFinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56FD9DDD245EE081002FAF45 /* Build configuration list for PBXNativeTarget "RouteFinder" */;
+			buildPhases = (
+				C38E1E3CD6666639A3CF216F /* [CP] Check Pods Manifest.lock */,
+				56FD9DAF245EE07E002FAF45 /* Sources */,
+				56FD9DB0245EE07E002FAF45 /* Frameworks */,
+				56FD9DB1245EE07E002FAF45 /* Resources */,
+				F0D9C8E2FE3F53A8F08B6C5A /* [CP] Copy Pods Resources */,
+				56CBFAD3E199A0DFA82D7C5D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RouteFinder;
+			productName = RouteFinder;
+			productReference = 56FD9DB3245EE07E002FAF45 /* Route Finder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56FD9DC8245EE081002FAF45 /* RouteFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56FD9DE0245EE081002FAF45 /* Build configuration list for PBXNativeTarget "RouteFinderTests" */;
+			buildPhases = (
+				0325F29A03DED81DCB141581 /* [CP] Check Pods Manifest.lock */,
+				56FD9DC5245EE081002FAF45 /* Sources */,
+				56FD9DC6245EE081002FAF45 /* Frameworks */,
+				56FD9DC7245EE081002FAF45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56FD9DCB245EE081002FAF45 /* PBXTargetDependency */,
+			);
+			name = RouteFinderTests;
+			productName = RouteFinderTests;
+			productReference = 56FD9DC9245EE081002FAF45 /* RouteFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		56FD9DD3245EE081002FAF45 /* RouteFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56FD9DE3245EE081002FAF45 /* Build configuration list for PBXNativeTarget "RouteFinderUITests" */;
+			buildPhases = (
+				AA83BF5CD4C1C2A41A82F5BD /* [CP] Check Pods Manifest.lock */,
+				56FD9DD0245EE081002FAF45 /* Sources */,
+				56FD9DD1245EE081002FAF45 /* Frameworks */,
+				56FD9DD2245EE081002FAF45 /* Resources */,
+				49EAF3A6DC290A4CF2AACFA1 /* [CP] Copy Pods Resources */,
+				CF9A9D63AFEDAA25BC1C1879 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56FD9DD6245EE081002FAF45 /* PBXTargetDependency */,
+			);
+			name = RouteFinderUITests;
+			productName = RouteFinderUITests;
+			productReference = 56FD9DD4245EE081002FAF45 /* RouteFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56FD9DAB245EE07E002FAF45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Panfilo Mariano Jr.";
+				TargetAttributes = {
+					56FD9DB2245EE07E002FAF45 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					56FD9DC8245EE081002FAF45 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 56FD9DB2245EE07E002FAF45;
+					};
+					56FD9DD3245EE081002FAF45 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 56FD9DB2245EE07E002FAF45;
+					};
+				};
+			};
+			buildConfigurationList = 56FD9DAE245EE07E002FAF45 /* Build configuration list for PBXProject "RouteFinder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 56FD9DAA245EE07E002FAF45;
+			productRefGroup = 56FD9DB4245EE07E002FAF45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56FD9DB2245EE07E002FAF45 /* RouteFinder */,
+				56FD9DC8245EE081002FAF45 /* RouteFinderTests */,
+				56FD9DD3245EE081002FAF45 /* RouteFinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56FD9DB1245EE07E002FAF45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56FD9DC3245EE081002FAF45 /* LaunchScreen.storyboard in Resources */,
+				56FD9DC0245EE081002FAF45 /* Assets.xcassets in Resources */,
+				56FD9DBE245EE07E002FAF45 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FD9DC7245EE081002FAF45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FD9DD2245EE081002FAF45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0325F29A03DED81DCB141581 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RouteFinderTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49EAF3A6DC290A4CF2AACFA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56CBFAD3E199A0DFA82D7C5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder/Pods-RouteFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder/Pods-RouteFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteFinder/Pods-RouteFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA83BF5CD4C1C2A41A82F5BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RouteFinder-RouteFinderUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38E1E3CD6666639A3CF216F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RouteFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF9A9D63AFEDAA25BC1C1879 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteFinder-RouteFinderUITests/Pods-RouteFinder-RouteFinderUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0D9C8E2FE3F53A8F08B6C5A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder/Pods-RouteFinder-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteFinder/Pods-RouteFinder-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteFinder/Pods-RouteFinder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56FD9DAF245EE07E002FAF45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56FD9DB7245EE07E002FAF45 /* AppDelegate.swift in Sources */,
+				56EB113D24603AF00098AB20 /* Geometry.swift in Sources */,
+				56FD9DF1245EFC5C002FAF45 /* NetworkClient.swift in Sources */,
+				56FD9DFB245F134B002FAF45 /* Polyline.swift in Sources */,
+				56FD9DB9245EE07E002FAF45 /* SceneDelegate.swift in Sources */,
+				56EB114124603B460098AB20 /* GooglePlaceResponse.swift in Sources */,
+				56FD9E00245F185A002FAF45 /* UIViewController+Extensions.swift in Sources */,
+				56EB1147246047F80098AB20 /* StartMarker.swift in Sources */,
+				56FD9DF3245F0CC6002FAF45 /* Route.swift in Sources */,
+				56EB113F24603B060098AB20 /* Location.swift in Sources */,
+				56EB1149246048030098AB20 /* FinishMarker.swift in Sources */,
+				56FD9DF7245F130C002FAF45 /* Distance.swift in Sources */,
+				56FD9DEE245EE52D002FAF45 /* RouteFinderViewController.swift in Sources */,
+				56EB114C2460484A0098AB20 /* MarkerBase.swift in Sources */,
+				56EB1145246042C80098AB20 /* Step.swift in Sources */,
+				56EB1139246039560098AB20 /* GooglePlace.swift in Sources */,
+				56FD9DF9245F1320002FAF45 /* Duration.swift in Sources */,
+				56EB114324603CC60098AB20 /* RestaurantMarker.swift in Sources */,
+				56FD9DF5245F12F1002FAF45 /* Leg.swift in Sources */,
+				56FD9DFD245F138D002FAF45 /* DirectionResponse.swift in Sources */,
+				56FD9DEC245EE266002FAF45 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FD9DC5245EE081002FAF45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56FD9DCE245EE081002FAF45 /* RouteFinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FD9DD0245EE081002FAF45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56FD9DD9245EE081002FAF45 /* RouteFinderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56FD9DCB245EE081002FAF45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56FD9DB2245EE07E002FAF45 /* RouteFinder */;
+			targetProxy = 56FD9DCA245EE081002FAF45 /* PBXContainerItemProxy */;
+		};
+		56FD9DD6245EE081002FAF45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56FD9DB2245EE07E002FAF45 /* RouteFinder */;
+			targetProxy = 56FD9DD5245EE081002FAF45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		56FD9DBC245EE07E002FAF45 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56FD9DBD245EE07E002FAF45 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		56FD9DC1245EE081002FAF45 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56FD9DC2245EE081002FAF45 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		56FD9DDB245EE081002FAF45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		56FD9DDC245EE081002FAF45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56FD9DDE245EE081002FAF45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C5637329A9BD4114D39349C /* Pods-RouteFinder.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DE3QBVW2VP;
+				INFOPLIST_FILE = RouteFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basil.routefinder;
+				PRODUCT_NAME = "Route Finder";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		56FD9DDF245EE081002FAF45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E77E304F7B0DBFF19FE7D78 /* Pods-RouteFinder.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DE3QBVW2VP;
+				INFOPLIST_FILE = RouteFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basil.routefinder;
+				PRODUCT_NAME = "Route Finder";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		56FD9DE1245EE081002FAF45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7187842CD4D22021DCF4CD27 /* Pods-RouteFinderTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DE3QBVW2VP;
+				INFOPLIST_FILE = RouteFinderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basil.routefinder.RouteFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RouteFinder.app/RouteFinder";
+			};
+			name = Debug;
+		};
+		56FD9DE2245EE081002FAF45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE992C8DB4839B4C80C1E5E8 /* Pods-RouteFinderTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DE3QBVW2VP;
+				INFOPLIST_FILE = RouteFinderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basil.routefinder.RouteFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RouteFinder.app/RouteFinder";
+			};
+			name = Release;
+		};
+		56FD9DE4245EE081002FAF45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10005FB8946A7ECE7FFDD23F /* Pods-RouteFinder-RouteFinderUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DE3QBVW2VP;
+				INFOPLIST_FILE = RouteFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basil.routefinder.RouteFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RouteFinder;
+			};
+			name = Debug;
+		};
+		56FD9DE5245EE081002FAF45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CAC8C5E48E71D31788070AE /* Pods-RouteFinder-RouteFinderUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DE3QBVW2VP;
+				INFOPLIST_FILE = RouteFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basil.routefinder.RouteFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RouteFinder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56FD9DAE245EE07E002FAF45 /* Build configuration list for PBXProject "RouteFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56FD9DDB245EE081002FAF45 /* Debug */,
+				56FD9DDC245EE081002FAF45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56FD9DDD245EE081002FAF45 /* Build configuration list for PBXNativeTarget "RouteFinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56FD9DDE245EE081002FAF45 /* Debug */,
+				56FD9DDF245EE081002FAF45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56FD9DE0245EE081002FAF45 /* Build configuration list for PBXNativeTarget "RouteFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56FD9DE1245EE081002FAF45 /* Debug */,
+				56FD9DE2245EE081002FAF45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56FD9DE3245EE081002FAF45 /* Build configuration list for PBXNativeTarget "RouteFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56FD9DE4245EE081002FAF45 /* Debug */,
+				56FD9DE5245EE081002FAF45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 56FD9DAB245EE07E002FAF45 /* Project object */;
+}
