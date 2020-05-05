@@ -9,6 +9,7 @@ target 'RouteFinder' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Alamofire', '~> 5.1'
+  pod 'FBSDKPlacesKit'
   
   target 'RouteFinderTests' do
     inherit! :search_paths

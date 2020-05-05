@@ -52,6 +52,10 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>FacebookAppID</key>
+	<string>686876705447459</string>
+	<key>FacebookClientToken</key>
+	<string>95b5d37536fdf71c8edec258db008ece</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

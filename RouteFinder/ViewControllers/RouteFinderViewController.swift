@@ -81,6 +81,13 @@ class RouteFinderViewController: UIViewController {
                 if let route = response.routes.first {
                     strongSelf.route = route
                     for leg in route.legs {
+                        //Draw the routes
+                        leg.steps.forEach { (step) in
+                            strongSelf.drawDirectionsFromPath(encodedPath: step.polyline.points)
+                            let location = CLLocation(latitude: step.endLocation.lat, longitude: step.endLocation.lng)
+                            strongSelf.getRestaurantNearByLocation(location: location, distance: 100)
+                        }
+
                         //Show Point A
                         if let firstStep = leg.steps.first {
                             let coor = CLLocationCoordinate2D(latitude: firstStep.startLocation.lat,
@@ -88,20 +95,12 @@ class RouteFinderViewController: UIViewController {
                             let marker = StartMarker(coordinate: coor)
                             marker.map = self?.mapView
                         }
-                        //Show Point A
+                        //Show Point B
                         if let lastStep = leg.steps.last {
                             let coor = CLLocationCoordinate2D(latitude: lastStep.endLocation.lat,
                                                               longitude: lastStep.endLocation.lng)
                             let marker = FinishMarker(coordinate: coor)
                             marker.map = self?.mapView
-                        }
-
-                        //Draw the routes
-                        leg.steps.forEach { (step) in
-                            strongSelf.drawDirectionsFromPath(encodedPath: step.polyline.points)
-                            let endLocationCoor = CLLocationCoordinate2D(latitude: step.endLocation.lat,
-                                                                         longitude: step.endLocation.lng)
-                            strongSelf.showRestaurantFroCoordinate(coordinate: endLocationCoor, radius: 300)
                         }
                     }
                 }
@@ -130,7 +129,31 @@ class RouteFinderViewController: UIViewController {
         }
     }
 
+    private func getRestaurantNearByLocation(location: CLLocation, distance: Double) {
+        NetworkClient.placeSearch(location: location, withDistance: distance) { [weak self] (response, error) in
+            guard let strongSelf = self else {
+                return
+            }
+
+            if let error = error  {
+                strongSelf.showAlert(message: error.localizedDescription)
+                return
+            }
+
+            if let response = response {
+                let maxRestaurantCount = 10
+                let first10 = response.data.prefix(maxRestaurantCount)
+                first10.forEach { (fbPlace) in
+                    let marker = FbRestaurantMarker(fbPlace: fbPlace)
+                    marker.map = self?.mapView
+                }
+            }
+        }
+    }
+
+    //Just in case we want to switch to Google Restaurant suggestions
     private func showRestaurantFroCoordinate(coordinate: CLLocationCoordinate2D, radius: Double) {
+
         NetworkClient.getRestaurantNearbyFromCoordinate(coordidate: coordinate, radius: radius) { [weak self] (response, error) in
             guard let strongSelf = self else {
                 return
@@ -212,15 +235,16 @@ extension RouteFinderViewController: GMSMapViewDelegate {
     }
 
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
-        guard let marker = marker as? RestaurantMarker else {
+        guard let marker = marker as? FbRestaurantMarker else {
             return nil
         }
 
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 50))
 
         let nameLabel = UILabel(frame: CGRect.zero)
+        nameLabel.textAlignment = .center
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.text = marker.googlePlace.name
+        nameLabel.text = marker.fbPlace.engagement.socialSentence
         nameLabel.numberOfLines = 0
         view.addSubview(nameLabel)
 
