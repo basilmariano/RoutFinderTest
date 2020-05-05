@@ -37,6 +37,7 @@ class RouteFinderViewController: UIViewController {
 
         title = Text.title
 
+        //Allow background location update for driving purposes
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.delegate = self
 
@@ -217,7 +218,6 @@ class RouteFinderViewController: UIViewController {
 extension RouteFinderViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
         guard status == .authorizedWhenInUse else {
             return
         }
