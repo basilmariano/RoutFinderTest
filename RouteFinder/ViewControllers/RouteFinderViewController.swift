@@ -18,19 +18,28 @@ class RouteFinderViewController: UIViewController {
             mapView.settings.myLocationButton = true
         }
     }
-
     @IBOutlet private weak var driveButton: UIButton!
     @IBOutlet private weak var overviewButton: UIButton!
 
     private let locationManager = CLLocationManager()
+    private let cameraAngle = 45.0
+    private let cameraZoom = 19.0
     private var route: Route?
     private var isDriving = false
 
+    lazy var isLocationAuthorized: Bool = {
+        return (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == .authorizedAlways)
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        title = Text.title
+
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.delegate = self
+
         if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
         } else {
@@ -52,8 +61,7 @@ class RouteFinderViewController: UIViewController {
     }
 
     @IBAction private func didTapStart() {
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse &&
-            CLLocationManager.authorizationStatus() != .authorizedAlways {
+        guard isLocationAuthorized else {
             return
         }
 
@@ -68,42 +76,51 @@ class RouteFinderViewController: UIViewController {
     private func getDirectionFromGoogle(origin: String, destination: String) {
         NetworkClient.getDirection(origin: origin,
                                    destination: destination) { [weak self] (response, error) in
-            guard let strongSelf = self else {
-                return
+                                    guard let strongSelf = self else {
+                                        return
+                                    }
+
+                                    if let error = error  {
+                                        DispatchQueue.main.async {
+                                            strongSelf.showAlert(message: error.localizedDescription)
+                                        }
+                                        return
+                                    }
+
+                                    if let response = response {
+                                        if let route = response.routes.first {
+                                            strongSelf.route = route
+                                            DispatchQueue.main.async {
+                                                strongSelf.populateMapFromRoute(route)
+                                            }
+                                        }
+                                    }
+        }
+    }
+    
+    private func populateMapFromRoute(_ route: Route) {
+        for leg in route.legs {
+
+            //Show Point A
+            if let firstStep = leg.steps.first {
+                let coor = CLLocationCoordinate2D(latitude: firstStep.startLocation.lat,
+                                                  longitude: firstStep.startLocation.lng)
+                let marker = StartMarker(coordinate: coor)
+                marker.map = self.mapView
+            }
+            //Show Point B
+            if let lastStep = leg.steps.last {
+                let coor = CLLocationCoordinate2D(latitude: lastStep.endLocation.lat,
+                                                  longitude: lastStep.endLocation.lng)
+                let marker = FinishMarker(coordinate: coor)
+                marker.map = self.mapView
             }
 
-            if let error = error  {
-                strongSelf.showAlert(message: error.localizedDescription)
-                return
-            }
-
-            if let response = response {
-                if let route = response.routes.first {
-                    strongSelf.route = route
-                    for leg in route.legs {
-                        //Draw the routes
-                        leg.steps.forEach { (step) in
-                            strongSelf.drawDirectionsFromPath(encodedPath: step.polyline.points)
-                            let location = CLLocation(latitude: step.endLocation.lat, longitude: step.endLocation.lng)
-                            strongSelf.getRestaurantNearByLocation(location: location, distance: 100)
-                        }
-
-                        //Show Point A
-                        if let firstStep = leg.steps.first {
-                            let coor = CLLocationCoordinate2D(latitude: firstStep.startLocation.lat,
-                                                              longitude: firstStep.startLocation.lng)
-                            let marker = StartMarker(coordinate: coor)
-                            marker.map = self?.mapView
-                        }
-                        //Show Point B
-                        if let lastStep = leg.steps.last {
-                            let coor = CLLocationCoordinate2D(latitude: lastStep.endLocation.lat,
-                                                              longitude: lastStep.endLocation.lng)
-                            let marker = FinishMarker(coordinate: coor)
-                            marker.map = self?.mapView
-                        }
-                    }
-                }
+            //Draw the routes
+            leg.steps.forEach { (step) in
+                drawDirectionsFromPath(encodedPath: step.polyline.points)
+                let location = CLLocation(latitude: step.endLocation.lat, longitude: step.endLocation.lng)
+                self.getRestaurantNearByLocation(location: location, distance: 100)
             }
         }
     }
@@ -124,7 +141,7 @@ class RouteFinderViewController: UIViewController {
             let polyline = GMSPolyline(path: path)
             if let polyPath = polyline.path {
                 mapView.animate(with: GMSCameraUpdate.fit(GMSCoordinateBounds(path:polyPath),
-                           withPadding: 100))
+                                                          withPadding: 100))
             }
         }
     }
@@ -135,8 +152,7 @@ class RouteFinderViewController: UIViewController {
                 return
             }
 
-            if let error = error  {
-                strongSelf.showAlert(message: error.localizedDescription)
+            if let _ = error  {
                 return
             }
 
@@ -144,10 +160,12 @@ class RouteFinderViewController: UIViewController {
                 let maxRestaurantCount = 10
                 let first10 = response.data.prefix(maxRestaurantCount)
                 first10.forEach { (fbPlace) in
-                    let marker = FbRestaurantMarker(fbPlace: fbPlace)
-                    marker.map = self?.mapView
+                    DispatchQueue.main.async {
+                        let marker = FbRestaurantMarker(fbPlace: fbPlace)
+                        marker.map = strongSelf.mapView
+                    }
                 }
-            }
+            } 
         }
     }
 
@@ -160,7 +178,9 @@ class RouteFinderViewController: UIViewController {
             }
 
             if let error = error  {
-                strongSelf.showAlert(message: error.localizedDescription)
+                DispatchQueue.main.async {
+                    strongSelf.showAlert(message: error.localizedDescription)
+                }
                 return
             }
 
@@ -168,8 +188,10 @@ class RouteFinderViewController: UIViewController {
                 let maxRestaurantCount = 10
                 let first10 = response.results.prefix(maxRestaurantCount)
                 first10.forEach { (place) in
-                    let marker = RestaurantMarker(googlePlace: place)
-                    marker.map = self?.mapView
+                    DispatchQueue.main.async {
+                        let marker = RestaurantMarker(googlePlace: place)
+                        marker.map = strongSelf.mapView
+                    }
                 }
             }
         }
@@ -194,26 +216,25 @@ class RouteFinderViewController: UIViewController {
 // MARK: - CLLocationManagerDelegate
 extension RouteFinderViewController: CLLocationManagerDelegate {
 
-  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 
-    guard status == .authorizedWhenInUse else {
-      return
+        guard status == .authorizedWhenInUse else {
+            return
+        }
+
+        locationManager.startUpdatingLocation()
     }
 
-    locationManager.startUpdatingLocation()
-  }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            return
+        }
 
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    guard let location = locations.first else {
-      return
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude,
+                                              zoom: Float(cameraZoom), bearing: location.course, viewingAngle: cameraAngle)
+        self.mapView.animate(to: camera)
     }
-
-    let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                          longitude: location.coordinate.longitude,
-                                          zoom: 16, bearing: location.course, viewingAngle: 45)
-
-    mapView?.animate(to: camera)
-  }
 
 }
 
@@ -225,13 +246,13 @@ extension RouteFinderViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         if (gesture) {
-          mapView.selectedMarker = nil
+            mapView.selectedMarker = nil
         }
     }
 
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
-      mapView.selectedMarker = nil
-      return false
+        mapView.selectedMarker = nil
+        return false
     }
 
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {

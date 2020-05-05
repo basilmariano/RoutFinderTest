@@ -93,13 +93,11 @@ struct NetworkClient {
 
         request.start(completionHandler: { (requestConn, result, error) in
             if let error = error {
-                print(error.localizedDescription)
                 completion(nil, error)
                 return
             }
 
             if let result = result {
-                print(result)
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: result, options: .prettyPrinted)
                     let decoder = JSONDecoder()
@@ -107,10 +105,9 @@ struct NetworkClient {
                     let response = try decoder.decode(FBPlaceResponse.self, from: jsonData)
                     completion(response, nil)
                 } catch let error {
-                    return completion(nil, error)
+                    completion(nil, error)
                 }
             } else {
-
                 completion(nil, NSError(domain: "com.sil.error", code: 400, userInfo: nil))
             }
         })

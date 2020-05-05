@@ -15,7 +15,7 @@ struct GoogleAPI {
 }
 
 struct Text {
-    static let alertTitle = "Route Finder"
+    static let title = "Route Finder"
     static let ok = "OK"
     static let stop = "Stop"
     static let resume = "Resume"

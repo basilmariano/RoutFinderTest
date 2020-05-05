@@ -56,6 +56,8 @@
 	<string>686876705447459</string>
 	<key>FacebookClientToken</key>
 	<string>95b5d37536fdf71c8edec258db008ece</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
